@@ -1,18 +1,18 @@
 const path = require("path");
-const Consola = require("../utils/database").models.Consola;
+const Universidad = require("../utils/database").models.Universidad;
 const sequelize =require("../utils/database");
 const Sequelize = require("sequelize");
 
 // Proceso cuando se llame a la ruta
-exports.getAltaConsola = (req,res)=>{
+exports.getAltaUniversidad = (req,res)=>{
     //res.send('<h1>Formulario de consola</h1>')
     res.sendFile(path.join(__dirname,'..','views','formulario.html'));
 }
 
-exports.postAltaConsola = (req,res)=>{
+exports.postAltaUniversidad = (req,res)=>{
     console.log(req.body)
     //INSERT INTO Consola VALUES ()
-    Consola.create(req.body)
+    Universidad.create(req.body)
         .then(resultado=>{
             console.log("Registro exitoso");//Servidor
             res.send("Registro exitoso") //Cliente
@@ -23,12 +23,12 @@ exports.postAltaConsola = (req,res)=>{
         })    
 }
 
-exports.getConsolas = (req,res)=>{
+exports.getUniversidades = (req,res)=>{
     //SELECT * from Consola;
-    Consola.findAll()
-        .then(consolas=>{
-            console.log("Consolas",consolas);
-            res.send(consolas);
+    Universidad.findAll()
+        .then(universidades=>{
+            console.log("Universidades",universidades);
+            res.send(universidades);
         })
         .catch(e=>{
             console.log(e);
@@ -36,7 +36,7 @@ exports.getConsolas = (req,res)=>{
         })
 }
 
-exports.postEliminarConsola=(req,res)=>{
+exports.postEliminarUniversidad=(req,res)=>{
     //DELETE FROM Consola WHERE id=
     console.log(req.body)
     Consola.destroy({
@@ -44,31 +44,31 @@ exports.postEliminarConsola=(req,res)=>{
             id : req.body.id
         }
     }).then(()=>{
-        console.log("Consola eliminada")
-        res.send("Consola eliminada")
+        console.log("Universidad eliminada")
+        res.send("Universidad eliminada")
     }).catch(e=>{
         console.log(e)
         res.send("Error")
     })
 }
 
-exports.postActualizarConsola=(req,res)=>{
+exports.postActualizarUniversidad=(req,res)=>{
     //UPDATE Consola SET WHERE id=
     console.log(req.body)
-    Consola.update({nombreConsola: req.body.nombreConsola},{
+    Consola.update({nombreUniversidad: req.body.nombreUniversidad},{
         where:{
             id: req.body.id
         }
     }).then(()=>{
-        console.log("Consola actualizada")
-        res.send("Consola actualiza")
+        console.log("Universidad actualizada")
+        res.send("Universidad actualiza")
     }).catch(e=>{
         console.log(e)
         res.send("Error")
     })
 }
 
-exports.getConsultaConsola = (req,res)=>{
+exports.getConsultaUniversidad = (req,res)=>{
     res.send('<h1>Datos de las consolas</h1>')
 }
 

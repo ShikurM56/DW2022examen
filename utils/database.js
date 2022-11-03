@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 const {applyRelations} = require('./relations');
 //objeto de conexión
 
-const sequelize = new Sequelize('ejemplo','admin','!mARCOALAN123',{
+const sequelize = new Sequelize('examen_MAML2','admin','!mARCOALAN123',{
     dialect:'mysql',
     host:'database-1.cw0y2gdtoyc6.us-east-1.rds.amazonaws.com',
     dialectOptions:{
@@ -19,10 +19,7 @@ const sequelize = new Sequelize('ejemplo','admin','!mARCOALAN123',{
 
 //Cargar los modelos
 const modelDefiners =[
-    require('../models/videojuego'),
-    require('../models/consola'),
-    require('../models/company'),
-    require('../models/consolaVideojuego')
+    require('../models/universidad')
 ];
 
 //Adherir los modelos al objeto de conexion

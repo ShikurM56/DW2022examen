@@ -3,7 +3,7 @@ const express = require('express');
 //Traer el objeto de conexion sequelize
 const sequelize = require("./utils/database")
 const path = require('path');
-const consolaRoutes = require('./routes/consola');
+const universidadRoutes = require('./routes/universidad');
 
 
 
@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'public')));
-app.use('/consola',consolaRoutes);
+app.use('/consola',universidadRoutes);
 
 
 //Definición de nuestra aplicación
